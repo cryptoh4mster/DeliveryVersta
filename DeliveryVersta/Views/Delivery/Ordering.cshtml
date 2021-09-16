@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Ordering";
+}
+@model Order 
+<h1>Оформление заказа</h1>
+<form asp-controller="Delivery" asp-action="CreateOrder" method="post">
+    
+    <p>
+        <label>Город отправителя</label><br />
+        @Html.EditorFor(model => model.SenderCity)
+        @Html.ValidationMessageFor(model => model.SenderCity)
+    </p>
+    <p>
+        <label>Адрес отправителя</label><br />
+        @Html.EditorFor(model => model.SenderAddress)
+        @Html.ValidationMessageFor(model => model.SenderAddress)
+    </p>
+    <p>
+        <label>Город получателя</label><br />
+        @Html.EditorFor(model => model.RecipientCity)
+        @Html.ValidationMessageFor(model => model.RecipientCity)
+    </p>
+    <p>
+        <label>Адрес получателя</label><br />
+        @Html.EditorFor(model => model.RecipientAddress)
+        @Html.ValidationMessageFor(model => model.RecipientAddress)
+    </p>
+    <p>
+        <label>Вес груза</label><br />
+        @Html.EditorFor(model => model.CargoWeight)
+        @Html.ValidationMessageFor(model => model.CargoWeight)
+    </p>
+    <p>
+        <label>Время забора груза</label><br />
+        @Html.EditorFor(model => model.PickupDate)
+        @Html.ValidationMessageFor(model => model.PickupDate)
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
